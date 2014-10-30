@@ -52,7 +52,7 @@ public class LogoActivity extends Activity {
 				@Override
 				public void onAnimationEnd(Animation animation) {
 					// TODO Auto-generated method stub
-					Intent intent = new Intent(LogoActivity.this, StartActivity.class);
+					Intent intent = new Intent(LogoActivity.this, MainActivity.class);
 					startActivity(intent);
 					LogoActivity.this.finish();
 				}
