@@ -25,7 +25,7 @@ public class LogoActivity extends Activity {
 		boolean isfirststart = sharedPreferences.getBoolean("isfirststart", true);
 
 		if (isfirststart) {
-			Intent intent = new Intent(this, FirstStartActivity.class);
+			Intent intent = new Intent(this, GuideActivity.class);
 			startActivity(intent);
 			this.finish();
 			SharedPreferences.Editor editor= sharedPreferences.edit();

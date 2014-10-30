@@ -1,29 +1,73 @@
 package com.indoorlocation;
 
+import java.util.ArrayList;
+
+
 import android.R.integer;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.view.LayoutInflater;
 
-public class FirstStartActivity extends Activity {
+public class GuideActivity extends Activity {
 
 	private GestureDetector gestureDetector;
 	final int RIGHT = 0;
 	final int LEFT = 1;
 
+	private ViewPager viewPager;
+	private ArrayList<View> pageViews;
+	private ViewGroup main, group;
+	private ImageView imageView;
+	private ImageView[] imageViews;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_first_start);
+
 		gestureDetector = new GestureDetector(this, gesturelistener);
+
+		LayoutInflater inflater = getLayoutInflater();
+		pageViews = new ArrayList<View>();
+		pageViews.add(inflater.inflate(R.layout.guide_view_01, null));
+		pageViews.add(inflater.inflate(R.layout.guide_view_02, null));
+		pageViews.add(inflater.inflate(R.layout.guide_view_03, null));
+		pageViews.add(inflater.inflate(R.layout.guide_view_04, null));
+		imageViews = new ImageView[pageViews.size()];
+		main = (ViewGroup) inflater.inflate(R.layout.activity_guide, null);
+		// group是R.layou.activity_guide中的负责包裹小圆点的LinearLayout.
+		group = (ViewGroup) main.findViewById(R.id.viewGroup);
+		viewPager = (ViewPager)main.findViewById(R.id.guidePages);
+		//初始化小圆点
+		for(int i = 0; i<pageViews.size();i++)
+		{
+			imageView = new ImageView(this);
+			imageView.setLayoutParams(new LayoutParams(20, 20));
+			imageView.setPadding(20, 0, 20, 0);
+			imageViews[i]=imageView;
+		/*	if(i==0)
+			{
+				//imageViews[i].setb
+			}else {
+				
+			}
+			group.addView(imageViews[i]);*/
+		}
+
 	}
 
 	private GestureDetector.OnGestureListener gesturelistener = new GestureDetector.SimpleOnGestureListener() {
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-			System.out.println(""+velocityX); 
+			System.out.println("" + velocityX);
 			float move = e2.getX() - e1.getX();
 			if (move > 0) {
 				doResult(RIGHT);
@@ -38,10 +82,10 @@ public class FirstStartActivity extends Activity {
 		// TODO Auto-generated method stub
 		switch (action) {
 		case RIGHT:
-			System.out.println("go right"); 
+			System.out.println("go right");
 			break;
 		case LEFT:
-			System.out.println("go left"); 
+			System.out.println("go left");
 			break;
 		default:
 			break;
