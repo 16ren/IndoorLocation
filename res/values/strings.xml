@@ -7,5 +7,6 @@
     <string name="title_activity_logo">LogoActivity</string>
     <string name="title_activity_first_start">FirstStartActivity</string>
     <string name="title_activity_start">StartActivity</string>
+    <string name="starttext">启动画面</string>
 
 </resources>
