@@ -29,7 +29,7 @@
             android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
         <activity
-            android:name=".StartActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_start" >
         </activity>
     </application>

@@ -170,7 +170,7 @@ public class GuideActivity extends Activity {
 
 	private void gotoStartActivity() {
 		// TODO Auto-generated method stub
-		Intent intent = new Intent(this, StartActivity.class);
+		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 		this.finish();
 	}
