@@ -25,7 +25,8 @@
         </activity>
         <activity
             android:name=".FirstStartActivity"
-            android:label="@string/title_activity_first_start" >
+            android:label="@string/title_activity_first_start" 
+            android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
         <activity
             android:name=".StartActivity"
